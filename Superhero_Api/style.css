@@ -1,0 +1,60 @@
+* {
+  font-family: "M PLUS Rounded 1c", Avenir Next, Helvetica, sans-serif;
+  color: white;
+}
+
+body {
+  background: #8990ec;
+}
+
+#searchInput {
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+  outline: none;
+  padding: none;
+}
+
+.button {
+  font-size: 1.2rem;
+  margin-top: 1.4rem;
+  background: #353959;
+  border-radius: 1.4rem;
+  padding: 0 0.8rem;
+}
+
+#buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.wrapper {
+  height: 800px;
+  width: 360px;
+  color: white;
+  background: #272639;
+  border-radius: 1rem;
+  padding: 1.2rem;
+  margin: 50px auto;
+}
+
+.container {
+  margin-top: 1.4rem;
+}
+
+.inputContainer {
+  background: #353959;
+  border-radius: 1.4rem;
+  padding: 0 0.8rem;
+  display: flex;
+  align-items: center;
+}
+
+#bottom {
+  display: flex;
+  justify-content: center;
+}
+
+#heroName {
+  text-align: center;
+}
