@@ -23,6 +23,17 @@ body {
   padding: 0 0.8rem;
 }
 
+.button:hover {
+  background-color: white;
+  color: #353959;
+}
+
+.button:active {
+  transform: scale(0.98);
+  background-color: #272639;
+  color: white;
+}
+
 #buttons {
   display: flex;
   justify-content: space-evenly;
