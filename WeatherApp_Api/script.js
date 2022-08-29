@@ -5,6 +5,7 @@ const weatherTypeDiv = document.getElementById("weather-type");
 const tempDiv = document.getElementById("temp");
 const minTempDiv = document.getElementById("min-temp");
 const maxTempDiv = document.getElementById("max-temp");
+const countryDiv = document.getElementById("country");
 
 getWeatherData = async (city) => {
   const URL = "https://api.openweathermap.org/data/2.5/weather";
@@ -22,22 +23,22 @@ const searchCity = async () => {
 };
 
 const showWeatherData = (weatherData) => {
-  console.log(weatherData);
-
   if (weatherData.cod == 404 || weatherData.cod == 400) {
     resetUI();
     return;
   }
 
+  countryDiv.innerHTML = `Country : ${weatherData.sys.country}`;
   cityNameDiv.innerHTML = weatherData.name;
-  weatherTypeDiv.innerHTML = weatherData.weather[0].main;
+  weatherTypeDiv.innerHTML = `Status : ${weatherData.weather[0].main}`;
   tempDiv.innerHTML = fahrenheitToCelcius(Number(weatherData.main.temp));
   minTempDiv.innerHTML = fahrenheitToCelcius(Number(weatherData.main.temp_min));
   maxTempDiv.innerHTML = fahrenheitToCelcius(Number(weatherData.main.temp_max));
 };
 
 const resetUI = () => {
-  cityNameDiv.innerHTML = "----";
+  countryDiv.innerHTML = "Country : ----";
+  cityNameDiv.innerHTML = "Status : ----";
   weatherTypeDiv.innerHTML = "----";
   tempDiv.innerHTML = "--";
   minTempDiv.innerHTML = "--";
