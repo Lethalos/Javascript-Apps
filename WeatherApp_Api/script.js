@@ -39,9 +39,9 @@ const showWeatherData = (weatherData) => {
 const resetUI = () => {
   cityNameDiv.innerHTML = "----";
   weatherTypeDiv.innerHTML = "----";
-  tempDiv.innerHTML = "--°";
-  minTempDiv.innerHTML = "--°";
-  maxTempDiv.innerHTML = "--°";
+  tempDiv.innerHTML = "--";
+  minTempDiv.innerHTML = "--";
+  maxTempDiv.innerHTML = "--";
 };
 
 const fahrenheitToCelcius = (fahrenheit) => {
