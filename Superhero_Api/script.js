@@ -1,7 +1,7 @@
 const TOKEN = 1472319469900306;
 const BASE_URL = `https://www.superheroapi.com/api.php/${TOKEN}`;
 
-const newHeroButton = document.getElementById("newHeroBtn");
+const randomHeroButton = document.getElementById("randomHeroButton");
 const searchButton = document.getElementById("searchButton");
 const searchInput = document.getElementById("searchInput");
 const heroImageDiv = document.getElementById("heroImage");
@@ -12,6 +12,7 @@ const getRandomSuperhero = (id) => {
   fetch(`${BASE_URL}/${id}`)
     .then((response) => response.json())
     .then((json) => {
+      console.log(json)
       const hero = json;
       setHeroName(hero.name);
       setHeroImage(hero.image);
@@ -28,7 +29,7 @@ const getSearchedSuperhero = (name) => {
         alert("Hero not found!");
         return;
       }
-      
+
       const hero = json.results[0];
       setHeroName(hero.name);
       setHeroImage(hero.image);
@@ -36,7 +37,8 @@ const getSearchedSuperhero = (name) => {
     });
 };
 
-newHeroButton.onclick = () => {
+randomHeroButton.onclick = () => {
+  alert("BULUT A TEKTE GIRIM")
   const randomNum = Math.floor(Math.random() * 731) + 1;
   getRandomSuperhero(randomNum);
 };
