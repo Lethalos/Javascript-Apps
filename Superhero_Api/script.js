@@ -38,7 +38,6 @@ const getSearchedSuperhero = (name) => {
 };
 
 randomHeroButton.onclick = () => {
-  alert("BULUT A TEKTE GIRIM")
   const randomNum = Math.floor(Math.random() * 731) + 1;
   getRandomSuperhero(randomNum);
 };
