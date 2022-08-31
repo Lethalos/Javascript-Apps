@@ -5,7 +5,7 @@ let p2NameDiv = document.getElementById("p2Name");
 let p1HealthDiv = document.getElementById("p1Health");
 let p2HealthDiv = document.getElementById("p2Health");
 
-const updateGame = (p1, p2, gameState) => {
+const updateGame = (p1, p2) => {
   p1NameDiv.innerHTML = p1.name;
   p2NameDiv.innerHTML = p2.name;
   p1HealthDiv.innerHTML = p1.health;
@@ -13,8 +13,7 @@ const updateGame = (p1, p2, gameState) => {
 
   if (p1.health <= 0 || p2.health <= 0) {
     game.isOver = true;
-    gameState = game.isOver;
-    resultDiv.innerHTML = game.declareWinner(gameState, p1, p2);
+    resultDiv.innerHTML = game.declareWinner(p1, p2);
   }
 };
 
@@ -26,16 +25,16 @@ class Player {
   }
 
   strike(player, enemy, attackDmg) {
-    attackDmg = Math.floor(Math.random() * 10) + 1;
+    let damageAmount = Math.floor(Math.random() * attackDmg) + 1;
     enemy.health -= attackDmg;
-    updateGame(p1, p2, gameState);
-    console.log(`${player.name} attacks ${enemy.name} for ${attackDmg}`);
+    updateGame(p1, p2);
+    console.log(`${player.name} attacks ${enemy.name} for ${damageAmount}`);
   }
 
   heal(player) {
     const hpAmount = Math.floor(Math.random() * 5) + 1;
     player.health += hpAmount;
-    updateGame(p1, p2, gameState);
+    updateGame(p1, p2);
     console.log(`${this.name} heals for ${hpAmount} HP`);
   }
 }
@@ -45,10 +44,10 @@ class Game {
     this.isOver = false;
   }
 
-  declareWinner(isOver, p1, p2) {
+  declareWinner(p1, p2) {
     let message;
 
-    if (isOver) {
+    if (game.isOver) {
       if (p1.health <= 0) {
         message = `${p2.name} WINS`;
       } else if (p2.health <= 0) {
@@ -66,20 +65,25 @@ class Game {
     p2.health = 100;
     game.isOver = false;
     resultDiv.innerHTML = "";
-    updateGame(p1, p2, gameState);
+    updateGame(p1, p2);
   }
 
   play(p1, p2) {
-    console.log("simulate");
-
     this.reset(p1, p2);
 
     while (!this.isOver) {
+      console.log("oc");
       p1.heal(p1);
       p2.heal(p2);
+      p1.strike(p1, p2, p1.attackDmg);
+      p2.strike(p2, p1, p2.attackDmg);
+      this.checkDraw(p1, p2);
+    }
+  }
 
-      p1.strike(p1, p2, p1.attackDamage);
-      p2.strike(p2, p1, p2.attackDamage);
+  checkDraw(p1, p2) {
+    if (p1.health <= 0 && p2.health <= 0) {
+      resultDiv.innerHTML = "DRAW!!!";
     }
   }
 }
@@ -89,9 +93,7 @@ let p2 = new Player("Liu Kang", 100, 7);
 
 let game = new Game();
 
-updateGame(p1, p2, game.isOver);
-
-let gameState = game.isOver;
+updateGame(p1, p2);
 
 playButton.addEventListener("click", () => {
   game.play(p1, p2);
