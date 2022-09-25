@@ -4,7 +4,7 @@
 }
 
 body {
-  background: #1c1c1c;
+  background: #427d8d;
 }
 
 #searchInput {
@@ -43,7 +43,7 @@ body {
   height: 800px;
   width: 360px;
   color: white;
-  background: #272639;
+  background: #131b2b;
   border-radius: 1rem;
   padding: 1.2rem;
   margin: 50px auto;
