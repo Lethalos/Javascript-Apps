@@ -1,13 +1,5 @@
 /* 
 Colors
-#d2f5fd
-#69f7f2
-#68cbb5
-#1d4b57
-
-#f2697c
-#a81c30
-
 #ead41c js yellow
 #4f5b66 grey
 #343d46
@@ -37,9 +29,8 @@ a {
 
 .container {
   max-width: 1100px;
-  margin: 1rem auto;
+  margin: 0 auto;
   padding: 1rem;
-  border-radius: 1rem;
 }
 
 /* Navbar */
@@ -59,6 +50,8 @@ a {
 header .container {
   background-color: #333;
   padding: 3rem 6rem;
+  margin: 1rem auto;
+  border-radius: 1rem;
 
   display: flex;
   justify-content: center;
@@ -76,6 +69,9 @@ header p {
 /* Section */
 section .container {
   background-color: #333;
+  margin: 1rem auto;
+  border-radius: 1rem;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,6 +92,10 @@ section img {
 
 section .secondary-text {
   margin-bottom: 1rem;
+}
+
+section a:hover .container {
+  box-shadow: 0 0 1rem #fff;
 }
 
 /* Footer */
