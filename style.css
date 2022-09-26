@@ -73,7 +73,7 @@ section .container {
   border-radius: 1rem;
 
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   gap: 1rem;
 }
@@ -88,10 +88,6 @@ section img {
   border-radius: 1rem;
   width: 50%;
   align-self: center;
-}
-
-section .secondary-text {
-  margin-bottom: 1rem;
 }
 
 section a:hover .container {
