@@ -8,34 +8,36 @@
   </head>
 
   <body>
-    <br />
+    <div class="resultContainer">
+      <div id="result"></div>
+      <button id="reset" onclick="game.reset(p1,p2)">Reset</button>
+    </div>
+
     <div class="menu">
       <div class="p1Info">
         <div id="p1Name">Player 1</div>
+
+        <div class="playerControls">
+          <div class="AttackDiv">
+            <h3>Press Q:</h3>
+            <button id="attack">Attack</button>
+          </div>
+
+          <div class="HealDiv">
+            <h3>Press A:</h3>
+            <button id="heal">Heal</button>
+          </div>
+        </div>
+
+        <div class="health-text">
+          <p>Health:</p>
+          <div id="p1Health">100</div>
+        </div>
 
         <img
           id="p1"
           src="https://66.media.tumblr.com/tumblr_madog64LN71rfjowdo1_1280.gif"
         />
-
-        <div class="playerControls">
-          <div class="AttackDiv">
-            <h3>Q:</h3>
-            <button
-              onclick="player1.strike(player1, player2, player1.attackDmg)"
-              id="attack"
-            >
-              Attack
-            </button>
-          </div>
-
-          <div class="HealDiv">
-            <h3>A:</h3>
-            <button onclick="player1.heal(player1)" id="heal">Heal</button>
-          </div>
-        </div>
-
-        <div id="p1Health">100</div>
       </div>
 
       <button id="play">Simulate</button>
@@ -43,31 +45,27 @@
       <div class="p2Info">
         <div id="p2Name">Player 2</div>
 
-        <img id="p2" src="https://escofficial.lima-city.de/atarisalonu/karakterler/gifler/liukang/01.gif" />
         <div class="playerControls">
           <div class="AttackDiv">
-            <h3>P:</h3>
-            <button
-              onclick="player2.strike(player2, player1, player2.attackDmg)"
-              id="attack"
-            >
-              Attack
-            </button>
+            <h3>Press P:</h3>
+            <button id="attack">Attack</button>
           </div>
           <div class="HealDiv">
-            <h3>L:</h3>
-            <button onclick="player2.heal(player2)" id="heal">Heal</button>
+            <h3>Press L:</h3>
+            <button id="heal">Heal</button>
           </div>
         </div>
 
-        <div id="p2Health">100</div>
-      </div>
-    </div>
-    <br />
+        <div class="health-text">
+          <p>Health:</p>
+          <div id="p2Health">100</div>
+        </div>
 
-    <div class="resultContainer">
-      <div id="result"></div>
-      <button id="reset" onclick="game.reset(p1,p2)">Reset</button>
+        <img
+          id="p2"
+          src="https://escofficial.lima-city.de/atarisalonu/karakterler/gifler/liukang/01.gif"
+        />
+      </div>
     </div>
 
     <audio id="p1attack" controls style="display: none">
